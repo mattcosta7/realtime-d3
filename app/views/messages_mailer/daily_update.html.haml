@@ -1,0 +1,34 @@
+%h1 People who reached #{Message::WIN_PRIZE_AMOUNT} messages today
+%table{width: '100%', style: "text-align: left"}
+  %tr{width: '100%', style: "text-align: left"}
+    %th
+      Received By
+    %th
+      Name
+  - User.prize_hit_today.each do |user|
+    %tr{width: '100%', style: "text-align: left"}
+      %td
+        = user.email
+      %td
+        = user.fname
+
+
+
+%h2 All messages Sent Today
+
+%table{width: '100%', style: "text-align: left"}
+  %tr{width: '100%', style: "text-align: left"}
+    %th
+      Received By
+    %th
+      Sent By
+    %th
+      Sent At
+  -@messages.today.each do |message|
+    %tr{width: '100%', style: "text-align: left"}
+      %td
+        = message.receiver.email
+      %td
+        = message.sender.email
+      %td
+        = message.get_time_sent

@@ -1,0 +1,5 @@
+gon.user_id = <%= @user.id %>;
+$('.put-the-form').html("<%=  j render partial: 'messages/form', locals: {message: Message.new, user: @user} %>")
+$( ".select2" ).select2({});
+$('nav ul').html("<li><a rel='nofollow' data-method='delete' href='/logout'>logout</a></li>");
+$("g.node circle[user_id=<%= @user.id %>]").attr('fill', '#F37920');

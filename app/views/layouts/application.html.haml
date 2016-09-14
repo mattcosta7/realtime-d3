@@ -1,0 +1,24 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title Realtime D3 Messaging
+    = csrf_meta_tags
+    = action_cable_meta_tag
+    = stylesheet_link_tag    'application', media: 'all'
+    %meta{name: "viewport", content: "width=device-width, initial-scale=1"}
+  %body
+    %nav.navbar.navbar-light.bg-faded
+      %ul.nav.navbar-nav
+        %li.nav-item.active
+          %a.nav-link{:href => root_path}
+            Xaxis messages
+            %span.sr-only (current)
+        -if @user
+          %li.nav-item
+            = link_to 'logout', logout_path, method: :delete, class: 'nav-link'
+
+    .container-fluid
+      = yield
+    = Gon::Base.render_data({})
+    = javascript_include_tag 'application'

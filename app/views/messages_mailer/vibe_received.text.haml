@@ -1,0 +1,15 @@
+You've received a message!
+= "\r\n"
+Hey, #{@message.receiver.fname}! One of your coworkers thinks you're awesome! They sent you this message:
+= "\r\n"
+= @message.body
+= "\r\n"
+= "\r\n"
+You've received #{@message.receiver.messages_received_count} messages!
+= "\r\n"
+-if @message.receiver.messages_received_count === Message::WIN_PRIZE_AMOUNT
+  You hit #{Message::WIN_PRIZE_AMOUNT}! You'll be getting a prize!
+-elsif @message.receiver.messages_received_count < Message::WIN_PRIZE_AMOUNT
+  You have #{Message::WIN_PRIZE_AMOUNT - @message.receiver.messages_received_count} left before winning a prize!
+-else
+  You've already received your prize, but it's good to feel extra appreciated!

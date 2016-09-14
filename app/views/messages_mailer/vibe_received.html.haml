@@ -1,0 +1,13 @@
+%h1= "You've received a message!"
+%p
+  Hey, #{@message.receiver.fname}! One of your coworkers thinks you're awesome! They sent you this message:
+  = @message.body
+%p
+  You've received #{@message.receiver.messages_received_count} messages!
+
+-if @message.receiver.messages_received_count === Message::WIN_PRIZE_AMOUNT
+  %p You hit #{Message::WIN_PRIZE_AMOUNT}! You'll be getting a prize!
+-elsif @message.receiver.messages_received_count < Message::WIN_PRIZE_AMOUNT
+  %p You have #{Message::WIN_PRIZE_AMOUNT - @message.receiver.messages_received_count} left before winning a prize!
+-else
+  %p You've already received your prize, but it's good to feel extra appreciated!

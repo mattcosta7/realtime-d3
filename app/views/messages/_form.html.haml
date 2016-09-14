@@ -1,0 +1,30 @@
+.message-form
+  %p Welcome #{@user.fname},
+  -if @user.messages_remaining > 0
+    %p
+      Everyone plays a role in making Xaxis great again. Tell your coworkers how much you appreciate them, and why, by sending them a message. When they receive #{Message::WIN_PRIZE_AMOUNT}, they'll get a gift!
+    %p
+      Prizes range from a dirty napkin to a brand new car!
+    = form_for @message||=Message.new, remote: true do |f|
+      #errors
+        = render partial: 'messages/errors', locals: {message: @message}
+      .field
+        = f.label :sender
+        %br/
+        - user ||= @user
+        = user.email
+        = f.hidden_field :sender_id, value: user.id
+      .field
+        = f.label :receiver
+        %br/
+        = f.collection_select :receiver_id, User.for_collection_select(user.email), :id, :email, {include_blank: ''}, {class: 'select2 form-control', width: '100%'}
+      .field
+        = f.label :body
+        = f.text_area :body, rows: 10, cols: 10, class: 'form-control'
+      .field
+        = f.submit :'Send messages', class: 'btn btn-primary'
+  -else
+    %p
+      You've already sent all of your messages, but don't worry they'll refill soon!
+  %p
+    = link_to 'My messages', my_messages_path, class: 'btn btn-primary'

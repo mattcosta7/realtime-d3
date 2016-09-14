@@ -1,0 +1,8 @@
+%h3 Login with your email address to send messages
+
+= form_for :session, url: login_path, remote:true do |f|
+  #session-errors
+  .field
+    = f.label :email
+    = f.email_field :email, class: 'form-control'
+  = f.submit 'login', class: 'btn btn-primary'

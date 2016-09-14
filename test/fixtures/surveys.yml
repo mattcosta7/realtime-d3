@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  answer_one: MyText
+  answer_two: MyText
+  answer_three: MyText
+  user: one
+
+two:
+  answer_one: MyText
+  answer_two: MyText
+  answer_three: MyText
+  user: two

@@ -1,0 +1,11 @@
+DailyMailerJob:
+  cron: "0 18 * * * America/New_York"
+  queue: default
+  args:
+  description: "Provides a daily email of messages created that day"
+
+ResetMessagesRemainingJob:
+  cron: '59 11 * * 0 America/New_York'
+  queue: default
+  args:
+  description: "Resets the remaining messages count on sunday evenings"

@@ -1,0 +1,7 @@
+People who reached #{Message::WIN_PRIZE_AMOUNT} messages today
+- User.prize_hit_today.each do |user|
+  = user.email + ' | ' + user.fname
+= "\r\n"
+All messages Sent Today
+-@messages.today.each do |message|
+  = "sent by: #{message.sender.email} to: #{message.receiver.email} at: #{message.get_time_sent}"

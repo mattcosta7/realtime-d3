@@ -1,0 +1,51 @@
+line
+  stroke: #999
+  stroke-width: 1px
+  position: relative
+  z-index: 2
+.node
+  position: relative
+  z-index: 3
+  circle
+    position: relative
+    z-index: 3
+svg
+  font-family: 'Gotham-Light'
+  text
+    font-family: FontAwesome
+
+.svg-container
+  position: fixed
+  top: 0
+  left: 0
+  width: 100vw
+  height: 100vh
+  @media (max-width: $size-sm)
+    height: 50vh
+
+.select2-container
+  width: 100% !important
+  *
+    color: $primary-color
+
+#error_explanation
+  ul
+    li
+      color: $color-red !important
+
+#message
+  position: fixed
+  z-index: 999
+  background-color: $color-blue-color
+  color: $primary-color
+  padding: 15px
+  display: none
+  border-radius: 6px
+  .messageList
+    padding-left: 15px
+    .messageList-item
+
+.form-entry
+  @media (max-width: $size-sm)
+    position: relative
+    top: 50vh

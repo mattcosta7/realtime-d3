@@ -1,0 +1,15 @@
+.row
+  .col-sm-9.push-sm-3
+    .row
+      #message
+    .row
+      .col-sm-12.svg-container
+        %svg
+  .col-sm-12.col-md-3.pull-md-9.col-xs-12.form-entry
+    #config
+    %h1 Send a message
+    .put-the-form
+      -if cookies.encrypted[:email_cookie]
+        = render partial: 'messages/form'
+      -else
+        = render 'sessions/form'

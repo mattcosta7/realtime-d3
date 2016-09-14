@@ -1,0 +1,7 @@
+%p
+  = @message.sender.fname << ','
+  Thanks for sending a message to
+  = @message.receiver.fname << ','
+  we're sure (s)he's going to love it!
+%p
+  = @message.thank_you_message.html_safe
